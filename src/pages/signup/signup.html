@@ -1,5 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Signup
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content padding>
-  <form (ngSubmit)="doLogin()">
+  <form (ngSubmit)="doSignup()">
+    <ion-item no-padding>
+      <ion-input type="text" name="username" [(ngModel)]="formInputs.username" placeholder="Username"></ion-input>
+    </ion-item>
+
     <ion-item no-padding>
       <ion-input type="email" name="email" [(ngModel)]="formInputs.email" placeholder="Email"></ion-input>
     </ion-item>
@@ -9,7 +21,7 @@
     </ion-item>
 
     <div padding-vertical>
-      <button ion-button block>Login</button>
+      <button ion-button block>Signup</button>
     </div>
   </form>
 </ion-content>

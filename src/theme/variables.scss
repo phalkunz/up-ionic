@@ -22,6 +22,13 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
+$primary: #3dbd5d;
+$primary-bg: #303030;
+$primary-text: #f4f4f4;
+
+$background-color: $primary-bg;
+$text-color: $primary-text;
+$list-border-color: $primary;
 
 
 
@@ -34,11 +41,11 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:    $primary,
+  secondary:  $primary-text,
+  danger:     #f77e5e,
+  light:      lighten($primary, 20%),
+  dark:       darken($primary, 20%)
 );
 
 
@@ -70,7 +77,7 @@ $colors: (
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.default";
+@import "ionic.theme.dark";
 
 
 // Ionicons

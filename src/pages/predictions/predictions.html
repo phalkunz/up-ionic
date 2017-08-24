@@ -1,0 +1,92 @@
+<!--
+  Generated template for the PredictionsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar>
+    <button ion-button icon-only menuToggle="right">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Predictions</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <form (submit)="doSubmit()">
+    <ion-list>
+      <ion-item no-padding>
+        <ion-grid>
+
+          <ion-row>
+            <ion-col col-10>
+              Newcastle United
+            </ion-col>
+            <ion-col col-2>
+              5
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-10>
+              Tottenham Hotspur
+            </ion-col>
+            <ion-col col-2>
+              1
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-12 text-center>
+              <small>Saturday 12th December, 15:00 GMT</small>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </ion-item>
+
+      <ion-item no-padding>
+        <ion-grid>
+
+          <ion-row>
+            <ion-col col-10 align-self-center>
+              Newcastle United
+            </ion-col>
+            <ion-col col-2 no-padding>
+              <ion-item no-padding class="input-holder">
+                <ion-input type="number" no-margin text-center></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-10 align-self-center>
+              Tottenham Hotspur
+            </ion-col>
+            <ion-col col-2 no-padding>
+              <ion-item no-padding class="input-holder">
+                <ion-input type="number" no-margin text-center></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-12 text-center>
+              <small>Saturday 12th December, 15:00 GMT</small>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding-vertical>
+      <button ion-button block>Save</button>
+    </div>
+  </form>
+</ion-content>

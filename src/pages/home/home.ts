@@ -1,14 +1,63 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController, LoadingController } from 'ionic-angular';
+import { PredictionsPage, SignupPage, StandingsPage } from '../';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  styles: [ './home.scss' ]
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  public formInputs = {
+    email: '',
+    password: '',
+  };
 
+  public login = HomePage;
+  public signup = SignupPage;
+  public predictions = PredictionsPage;
+  public standings = StandingsPage;
+
+  constructor(
+    private toastCtrl: ToastController,
+    private navCtrl: NavController,
+    private loadingCtrl: LoadingController,
+    private auth: AuthProvider
+  ) { }
+
+  public doLogin() {
+    const loading = this.loadingCtrl.create({
+      content: 'Logging in'
+    });
+    loading.present();
+
+    this.auth.login(this.formInputs.email, this.formInputs.password)
+      .subscribe(
+        response => {
+          this.navCtrl.push(PredictionsPage);
+          loading.dismiss();
+        },
+        error => {
+          let msg = 'Unable to log in.';
+          if(error.status === 422) {
+            msg = 'There is something wrong with your credentials. Please correct '
+              + 'them and try again.';
+          } else if (error.status === 401) {
+            msg = 'Invalid credentials. Please correct them and try again.';
+          } else if (error.status >= 500) {
+            msg = 'Ooops! Something went wrong. Please try again.';
+          }
+
+          const toast = this.toastCtrl.create({
+            message: msg,
+            duration: 3000
+          });
+
+          toast.present();
+          loading.dismiss();
+        }
+      );
   }
-
 }
