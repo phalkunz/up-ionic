@@ -5,20 +5,35 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
+  <ion-toolbar>
+    <button ion-button icon-only menuToggle="left">
+      <ion-icon menuToggle name="menu"></ion-icon>
+    </button>
     <ion-title>Dashboard</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 
 </ion-header>
 
+<ion-menu [content]="mainContent" side="left">
+  <ion-content>
+    <p ion-item>
+      <ion-icon name="person"></ion-icon> Michael Strong
+    </p>
+    <ion-list>
+      <button ion-item (click)="openPage(predictions)"><ion-icon name="trending-up"></ion-icon> Predictions</button>
+      <button ion-item (click)="openPage(standings)"><ion-icon  name="trophy"></ion-icon> Standings</button>
+      <button ion-item (click)="logout(logout)"><ion-icon name="exit"></ion-icon> Logout</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
-<ion-content padding>
+
+<ion-content #mainContent padding>
   <ion-card>
-    <a [navPush]="predictions" ion-item>Predictions</a>
+    <a [navPush]="predictions" ion-item><ion-icon name="trending-up"></ion-icon> Predictions</a>
   </ion-card>
 
   <ion-card>
-    <a [navPush]="standings" ion-item>Standings</a>
+    <a [navPush]="standings" ion-item><ion-icon name="trophy"></ion-icon> Standings</a>
   </ion-card>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
 import { PredictionsPage, SignupPage, StandingsPage } from '../';
 
 /**
@@ -22,8 +22,17 @@ export class DashboardPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    public menuCtrl: MenuController
   ) {
   }
 
+  /**
+   * @todo move this method to (BasePage) and have the class extends BaseClass
+   * @param page String
+   */
+  openPage(page) {
+    this.navCtrl.push(page);
+    this.menuCtrl.close();
+  }
 }
