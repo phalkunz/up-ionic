@@ -6,14 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
-import { HomePage, DashboardPage, PredictionsPage, SignupPage, StandingsPage } from '../pages';
+import { HomePage, PredictionsPage, SignupPage, StandingsPage } from '../pages';
 import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    DashboardPage,
     PredictionsPage,
     SignupPage,
     StandingsPage,
@@ -27,7 +26,6 @@ import { AuthProvider } from '../providers/auth/auth';
   entryComponents: [
     MyApp,
     HomePage,
-    DashboardPage,
     PredictionsPage,
     SignupPage,
     StandingsPage,

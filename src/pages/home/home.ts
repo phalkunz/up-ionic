@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController, LoadingController } from 'ionic-angular';
-import { DashboardPage, PredictionsPage, SignupPage, StandingsPage } from '../';
+import { PredictionsPage, SignupPage, StandingsPage } from '../';
 import { AuthProvider } from '../../providers/auth/auth';
 
 @Component({
@@ -17,7 +17,6 @@ export class HomePage {
 
   public login = HomePage;
   public signup = SignupPage;
-  public dashboard = DashboardPage;
   public predictions = PredictionsPage;
   public standings = StandingsPage;
 
@@ -26,8 +25,7 @@ export class HomePage {
     private navCtrl: NavController,
     private loadingCtrl: LoadingController,
     private auth: AuthProvider
-  ) {
-  }
+  ) { }
 
   public doLogin() {
     const loading = this.loadingCtrl.create({
@@ -38,7 +36,7 @@ export class HomePage {
     this.auth.login(this.formInputs.email, this.formInputs.password)
       .subscribe(
         response => {
-          this.navCtrl.push(DashboardPage);
+          this.navCtrl.push(PredictionsPage);
           loading.dismiss();
         },
         error => {
